@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}Contacts{% endblock %}
+{% block heading %}Contacts{% endblock %}
+{% block content %}
+{% for contact in contacts %}
+    {% include 'contacts/contact_single.html' %}
+{% endfor %}
+{% endblock %}

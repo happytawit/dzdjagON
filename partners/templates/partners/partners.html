@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Partners{% endblock %}
+{% block heading %}Partners{% endblock %}
+{% block content %}
+{% for partner in partners %}
+    {% include 'partners/partner_single.html' %}
+{% endfor %}
+<form action="{% url 'partners:edit' %}" method="get">
+    <input type="submit" value="Add new partner"> 
+</form>
+{% endblock %}

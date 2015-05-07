@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Add new partner{% endblock %}
+{% block heading %}Add new partner{% endblock %}
+{% block sidebar %}{% endblock %}
+{% block content %}
+<form action="{% url 'partners:done' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Add new partner"> 
+</form>
+{% endblock %}
