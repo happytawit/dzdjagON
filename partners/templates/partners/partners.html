@@ -2,9 +2,26 @@
 {% block title %}Partners{% endblock %}
 {% block heading %}Partners{% endblock %}
 {% block content %}
-{% for partner in partners %}
+{% for partner in pag.object_list %}
     {% include 'partners/partner_single.html' %}
 {% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if pag.has_previous %}
+            <a href="?page={{ pag.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ pag.number }} of {{ pag.paginator.num_pages }}.
+        </span>
+
+        {% if pag.has_next %}
+            <a href="?page={{ pag.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div><br>
+
 <form action="{% url 'partners:edit' %}" method="get">
     <input type="submit" value="Add new partner"> 
 </form>

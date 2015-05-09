@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load cache %}
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -9,13 +10,16 @@
 <body>
     <div id="heading"><h1>{% block heading %}Index{% endblock %}</h1></div>
  <div id="sidebar">
- {% block sidebar %}
-<ul>
-     <li><a href="{% url 'news:index' %}">News</a></li>
-     <li><a href="{% url 'contacts:contacts' %}">Contacts</a></li>
-     <li><a href="{% url 'partners:partners' %}">Partners</a></li>
-</ul>
- {% endblock %}
+     {% cache 500 sidebar %}
+     {% block sidebar %}
+    <ul>
+         <li><a href="{% url 'news:index' %}">News</a></li>
+         <li><a href="{% url 'contacts:contacts' %}">Contacts</a></li>
+         <li><a href="{% url 'partners:partners' %}">Partners</a></li>
+         <li><a href="/about/">About</a></li>
+    </ul>
+     {% endblock %}
+     {% endcache %}
  </div>
  <div id="content">
  {% block content %}{% endblock %}
