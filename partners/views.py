@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def partners(request):
-    partners_list = Partner.objects.all().order_by('name')
+    partners_list = Partner.objects.all()
     paginator = Paginator(partners_list, 2)
     page = request.GET.get('page')
     try:
