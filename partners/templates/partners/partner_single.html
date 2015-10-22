@@ -1,2 +1,2 @@
-<h3>{{ partner.name|upper }}</h3>
+<h3 {% if partner.published = True %}style="color:red;"{% endif %}>{{ partner.name|upper }}</h3>
 {{ partner.description }}

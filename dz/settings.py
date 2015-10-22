@@ -25,7 +25,7 @@ SECRET_KEY = 'b(@6jlfrje&iy7ey3yb5^!8*6%i&fss9q3smjb8l4mfjh#rwcw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['dz.example.com',
+ALLOWED_HOSTS = ['example.com',
 ]
 
 
